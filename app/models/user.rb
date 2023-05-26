@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :rememberable, :validatable
 
   validates_presence_of :first_name, :last_name
+
+  has_many :tasks
 end
