@@ -1,24 +1,46 @@
-# README
+# Test Task - Task Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The test task is a task manager application built using Turbo Rails.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+- Ruby version: 3.1.2
+- Bundler: Make sure you have Bundler installed (`gem install bundler`).
 
-* System dependencies
+## Getting Started
 
-* Configuration
+Follow these steps to run the project locally:
 
-* Database creation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/test_task.git
+   
+2. Install Ruby dependencies:
+   ```bash
+   bundle install
+   
+3. Install JavaScript dependencies using npm:
+   ```bash
+   npm install
+   
+4. Install JavaScript dependencies using Yarn:
+   ```bash
+   yarn install
+   
+5. Set up the database configuration:
+   Rename the `database.yml.dist` file to `database.yml`.
+   Update the `database.yml` file with your database credentials.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+6. Create the database:
+   ```bash
+   rails db:create
+   
+7. Migrate the database:
+   ```bash
+   rails db:migrate
+   
+8. Start the Rails server:
+   ```bash
+   rails s
+   
+9. Open your web browser and visit http://localhost:3000 to access the application.
