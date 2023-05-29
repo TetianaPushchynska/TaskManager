@@ -16,3 +16,5 @@
         = render 'shared/flash_messages'
       = yield
     = turbo_frame_tag 'modal'
+    .container
+      = render 'layouts/footer', activity: current_user.today_task_activity

@@ -75,7 +75,9 @@ class TasksController < ApplicationController
   def turbo_stream_response(action)
     [
       turbo_stream.replace('tasks_list', partial: 'tasks/tasks_list', locals: { tasks: current_user.tasks }),
-      turbo_stream.update('flash', partial: 'shared/flash_messages')
+      turbo_stream.update('flash', partial: 'shared/flash_messages'),
+      turbo_stream.replace('task_activity', partial: 'layouts/footer',
+        locals: { activity: current_user.today_task_activity })
     ].prepend(turbo_stream.replace("#{action}_task_frame", partial: 'tasks/form',
      locals: { task: @task, turbo_frame_name: "#{action}_task_frame", status: @task.status }))
      .yield_self { |response| { turbo_stream: response } }
