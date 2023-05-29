@@ -12,5 +12,5 @@
               %strong= attribute.to_s + ':'
               = values[0].to_s + ' → ' + values[1].to_s
               %br
-          %td= audit.created_at.strftime('%Y-%m-%d %H:%M:%S')
+          %td= audit.created_at.strftime('%Y-%m-%d %H:%M:%S').in_time_zone(current_user.time_zone)
   %button{ class: 'btn btn-light', data: { action: 'turbo-modal#hideModal' } }= 'Close'

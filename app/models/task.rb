@@ -10,7 +10,9 @@ class Task < ApplicationRecord
   enum status: STATUSES
   enum priority: PRIORITIES
 
-  scope :by_priority, ->(value) { where(priority: value) if value.present? }
+  scope :by_priority, ->(value) {
+    Array(value).reject(&:blank?).present? ? where(priority: Array(value).reject(&:blank?)) : all
+  }
 
   validates_presence_of :title, :description, :status, :priority
 end
