@@ -4,7 +4,7 @@
     = f.label :priority, 'Filter by priority'
     .custom-select-container
       = f.select :priority, options_for_select(Task.priorities.keys, params[:priority]),
-        { include_blank: false }, { multiple: true, class: 'custom-select', id: 'priority_select',
+        { include_blank: 'Show all tasks' }, { multiple: true, class: 'custom-select', id: 'priority_select',
         data: { action: 'filters#submit' } }
 
 = render 'tasks/tasks_list', tasks: @tasks
