@@ -13,7 +13,7 @@ RSpec.describe Task, type: :model do
     it 'validates enum' do
       is_expected.to define_enum_for(:status).with_values(described_class::STATUSES).backed_by_column_of_type(:string)
       is_expected.to define_enum_for(:priority).with_values(described_class::PRIORITIES).
-        backed_by_column_of_type(:string)
+        backed_by_column_of_type(:integer)
     end
 
     it { should validate_presence_of(:title) }
