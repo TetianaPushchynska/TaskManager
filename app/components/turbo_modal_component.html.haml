@@ -1,0 +1,5 @@
+= turbo_frame_tag 'modal' do
+  %div{ class: 'custom_modal', data: { controller: 'turbo-modal', turbo_modal_target: 'modal',
+    action: 'turbo:submit-end->turbo-modal#submitEnd' } }
+    = @title
+    = content

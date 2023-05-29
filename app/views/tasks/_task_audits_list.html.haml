@@ -1,0 +1,16 @@
+= turbo_frame_tag 'task_audits' do
+  %table.table-bordered
+    %thead
+      %tr
+        %th Changes
+        %th Timestamp
+    %tbody
+      - task_audits.each do |audit|
+        %tr
+          %td
+            - audit.audited_changes.each do |attribute, values|
+              %strong= attribute.to_s + ':'
+              = values[0].to_s + ' → ' + values[1].to_s
+              %br
+          %td= audit.created_at.strftime('%Y-%m-%d %H:%M:%S')
+  %button{ class: 'btn btn-light', data: { action: 'turbo-modal#hideModal' } }= 'Close'
