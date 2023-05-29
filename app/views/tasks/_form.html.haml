@@ -4,10 +4,6 @@
     = form.text_field :title, class: 'form-control'
 
   .form-group
-    = form.label :description
-    = form.text_field :description, class: 'form-control'
-
-  .form-group
     = form.label :status
     = form.select :status, Task.statuses.keys.map { |status| [status.titleize, status] },
       { selected: status }, class: 'form-control'
@@ -16,6 +12,10 @@
     = form.label :priority
     = form.select :priority, Task.priorities.keys.map { |priority| [priority.titleize, priority] },
       {}, class: 'form-control'
+
+  .form-group
+    = form.label :description
+    = form.text_area :description, class: 'form-control'
 
   .actions
     = form.submit 'Save', class: 'btn btn-primary'
