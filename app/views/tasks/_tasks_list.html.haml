@@ -1,0 +1,21 @@
+= turbo_frame_tag 'tasks_list' do
+  .tasks_container
+    - Task::STATUSES.values.each do |status|
+      .task_column
+        .header_column
+          %h2= status.titleize
+          = link_to new_task_path(status: status), class: 'circle-icon', data: { turbo_frame: 'modal' } do
+            %i.fas.fa-plus
+        .task_block
+          - tasks.where(status: status).order('priority asc').each do |task|
+            .task_card
+              %tr
+                %td= dot_status(task)
+                .title= task.title
+                .description= task.description
+                .actions
+                  %td
+                    = link_to 'Edit', edit_task_path(task), data: { turbo_frame: 'modal' }
+                    = link_to 'Log', task_audits_task_path(task), data: { turbo_frame: 'modal' }
+                    = link_to 'Remove', task_path(task), data: { turbo_method: :delete },
+                      turbo_frame: 'tasks_list', turbo_stream: turbo_stream.remove(task)

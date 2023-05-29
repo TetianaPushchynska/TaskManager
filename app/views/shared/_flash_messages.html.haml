@@ -1,0 +1,5 @@
+- flash.each do |name, message|
+  .alert{class: "#{bootstrap_class_for(name)}"}
+    %button.close(type='button' aria-label='Close')
+      %span(aria-hidden='true') &times;
+    = message

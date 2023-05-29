@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "tasks#index"
 
-  resources :tasks
+  resources :tasks do
+    member do
+      get :task_audits
+    end
+  end
 end
