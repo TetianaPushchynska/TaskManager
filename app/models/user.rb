@@ -1,9 +1,15 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :recoverable, :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  ROLES = {
+    task_author: 'Task Author'
+  }.freeze
+
   devise :database_authenticatable, :registerable, :rememberable, :validatable
+
+  has_many :tasks
 
   validates_presence_of :first_name, :last_name
 
-  has_many :tasks
+  def task_author?
+    role == ROLES[:task_author]
+  end
 end
