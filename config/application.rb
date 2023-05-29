@@ -34,6 +34,6 @@ module TaskManager
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    config.time_zone = 'UTC'
+    config.time_zone = 'Europe/Kiev'
   end
 end
